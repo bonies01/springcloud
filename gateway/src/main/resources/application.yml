@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: gateway-client
+  cloud:
+   gateway:
+     routes:
+        - id: url-proxy-1
+         #在uri的schema协议部分为自定义的lb:类型，表示从微服务注册中心（如Eureka）订阅服务，并且进行服务的路由。
+          uri: https://blog.csdn.net/
+          predicates:
+              - Path=/hello
